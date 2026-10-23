@@ -1,16 +1,15 @@
-name: Pull on server
+ame: Pull on server
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   pull:
     runs-on: ubuntu-latest
     steps:
       - name: Update /opt/cld-pr-1 on server
-        run:
-          mkdir -p ~/.ssh
+        run: mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >~/.ssh/key
           chmod 600 ~/.ssh/key
           echo "${{ secretd.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
