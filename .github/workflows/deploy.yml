@@ -1,4 +1,4 @@
-ame: Pull on server
+name: Pull on server
 
 on:
   push:
@@ -12,5 +12,5 @@ jobs:
         run: mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" >~/.ssh/key
           chmod 600 ~/.ssh/key
-          echo "${{ secretd.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
           ssh -i ~/.ssh/key ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
